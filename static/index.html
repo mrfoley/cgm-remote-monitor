@@ -14,9 +14,9 @@
     <body>
         <div id="toolbar">
             <div id="buttonbar">
-                <a id="testAlarms" class="tip" original-title="Alarm Test / Smartphone Enable" href="#"><i class="icon-volume"></i></a>
                 <a id="drawerToggle" class="tip" original-title="Settings" href="#"><i class="icon-cog"></i></a>
                 <a id="treatmentDrawerToggle" class="tip" original-title="Treatments" href="#"><i class="icon-plus"></i></a>
+                <a id="testAlarms" class="tip" original-title="Alarm Test / Smartphone Enable" href="#"><i class="icon-volume"></i></a>
             </div>
             <h1 class="customTitle">Nightscout</h1>
         </div>
@@ -33,6 +33,7 @@
                     </div>
                     <ul class="dropdown-menu" id="silenceBtn">
                         <li><a href="#" data-snooze-time="1800000">Silence for 30 minutes</a></li>
+                        <li><a href="#" data-snooze-time="2700000">Silence for 45 minutes</a></li>
                         <li><a href="#" data-snooze-time="3600000">Silence for 60 minutes</a></li>
                         <li><a href="#" data-snooze-time="5400000">Silence for 90 minutes</a></li>
                         <li><a href="#" data-snooze-time="7200000">Silence for 120 minutes</a></li>
@@ -142,6 +143,7 @@
                         <span>Event Type:</span>
                         <select id="eventType">
                             <option value="BG Check">BG Check</option>
+                            <option value="Ketone Check">Ketone Check</option>
                             <option value="Snack Bolus">Snack Bolus</option>
                             <option value="Meal Bolus">Meal Bolus</option>
                             <option value="Correction Bolus">Correction Bolus</option>
@@ -168,6 +170,28 @@
                             <span>Sensor<br></span>
                         </label>
                     </fieldset>
+                    
+                    <fieldset>
+                        <legend>Blood Ketone Reading</legend>
+                        <input type="number" step="any" id="bketoneValue" /><br>
+                        <legend>Urine Ketone Reading</legend>
+                        <input type="radio" name="ketoneType" id="u1" value="None"/>
+                            <span>None</span>
+                        </label>
+                        <input type="radio" name="ketoneType" id="u2" value="Trace"/>
+                            <span>Trace</span>
+                        </label>
+                        <input type="radio" name="ketoneType" id="u3" value="Small"/>
+                            <span>Small<br></span>
+                        </label>
+                        <input type="radio" name="ketoneType" id="u4" value="Moderate"/>
+                            <span>Moderate</span>
+                        </label>
+                        <input type="radio" name="ketoneType" id="u5" value="Large"/>
+                            <span>Large</span>
+                        </label>
+                    </fieldset>
+
                     <label for="carbsGiven" class="left-column short-label">
                         <span>Carbs Given:</span>
                         <input type="number" step="any" min="0" id="carbsGiven" placeholder="Amount in grams" />
@@ -177,9 +201,11 @@
                         <input type="number" step="any" min="0" id="insulinGiven" placeholder="Amount in units"/>
                     </label>
                     <label for="preBolus" class="left-column short-label extra-space">
-                        <span>Eating in:</span>
+                        <span>Time since treatment:</span>
                         <select id="preBolus">
                             <option value="0">Time in minutes</option>
+                            <option value="5">5 minutes</option>
+                            <option value="10">10 minutes</option>
                             <option value="15">15 minutes</option>
                             <option value="20">20 minutes</option>
                             <option value="30">30 minutes</option>
